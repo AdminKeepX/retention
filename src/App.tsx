@@ -10,13 +10,9 @@ import { CHAIN } from "@tonconnect/protocol";
 import "@twa-dev/sdk";
 
 const StyledApp = styled.div`
-  background-color: #e8e8e8;
-  color: black;
+  background-color: #ffffff;
+  color: ${"var(--black-color)"};
 
-  @media (prefers-color-scheme: dark) {
-    background-color: #222;
-    color: white;
-  }
   min-height: 100vh;
   padding: 20px 20px;
 `;
@@ -43,9 +39,7 @@ function App() {
                 : "N/A"}
             </Button>
           </FlexBoxRow>
-          <Counter />
           <TransferTon />
-          <Jetton />
         </FlexBoxCol>
       </AppContainer>
     </StyledApp>

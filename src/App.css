@@ -2,4 +2,12 @@
   --tg-theme-bg-color: #efeff3;
   --tg-theme-button-color: #2eaddc;
   --tg-theme-button-text-color: white;
+  --blue-color: #377DF6; /* Синий 55 125 246 */
+  --gray-background-color: #f4f6f7; /* Серый_фон 244 246 247 */
+  --black-color: #0C0D0E; /* Черный 12 13 14 */
+  --blue-text-color: #5096F5; /* Синий_текст 80 150 245 */
+  --dark-gray-background-color: #E1E3E7; /* Серый фон _темный 225 227 231 */
+  --gray-text-color: #768087; /* Серый_текст 118 128 135 */
 }
+
+/* var(--tg-theme-button-text-color) */

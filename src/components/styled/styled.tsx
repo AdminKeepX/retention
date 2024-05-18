@@ -3,11 +3,7 @@ import styled from "styled-components";
 export const Card = styled.div`
   padding: 18px 20px;
   border-radius: 8px;
-  background-color: white;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: #111;
-  }
+  background-color: ${"var(--gray-background-color)"};
 `;
 
 export const FlexBoxRow = styled.div`
@@ -25,7 +21,7 @@ export const FlexBoxCol = styled.div`
 
 export const Button = styled.button`
   background-color: ${(props) =>
-    props.disabled ? "#6e6e6e" : "var(--tg-theme-button-color)"};
+    props.disabled ? "#6e6e6e" : "var(--blue-color)"};
   border: 0;
   border-radius: 8px;
   padding: 10px 20px;
@@ -46,8 +42,4 @@ export const Input = styled("input")`
   border-radius: 10px;
   width: 100%;
   border: 1px solid #c2c2c2;
-
-  @media (prefers-color-scheme: dark) {
-    border: 1px solid #fefefe;
-  }
 `;

@@ -18,7 +18,7 @@ export function TransferTon() {
           <label style={{ width: '100px', display: 'inline-block' }}>Contract</label>
           <Input
             style={{ marginRight: 8, fontSize: '14px' }}
-            value= {network ? network === CHAIN.TESTNET ? "mainnet" : "retention.ton" : "N/A" }
+            value= {network ? network === CHAIN.TESTNET ? "!mainnet" : "retention.ton" : "N/A" }
             disabled
           ></Input>
         </FlexBoxRow>
@@ -29,6 +29,7 @@ export function TransferTon() {
             type="number"
             value={tonAmount}
             onChange={(e) => setTonAmount(e.target.value)}
+            min={5}
           ></Input>
         </FlexBoxRow>
         <FlexBoxRow>
@@ -42,7 +43,7 @@ export function TransferTon() {
         <div style={{ 
           display: 'grid', 
           placeItems: 'center', 
-          height: '10vh' 
+          height: '15vh' 
         }}>
           <Button
             disabled={!connected}

@@ -10,7 +10,6 @@ import { CHAIN } from "@tonconnect/protocol";
 import "@twa-dev/sdk";
 import TabBar from "./Tabbar";
 
-
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
@@ -63,10 +62,26 @@ const AppContainer = styled.div`
 //   );
 // }
 
+declare global {
+  interface Window {
+    Telegram: {
+      WebApp: {
+        expand: () => void;
+        // Добавьте другие методы и свойства, которые вам нужны
+      };
+    };
+  }
+}
 
 
 function App() {
   const [value, setValue] = React.useState(0);
+
+  React.useEffect(() => {
+    if (window.Telegram?.WebApp) {
+      window.Telegram.WebApp.expand();
+    }
+  }, []);
 
   let content;
   switch (value) {

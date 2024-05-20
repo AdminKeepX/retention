@@ -6,7 +6,7 @@ import { TransferTon } from "./components/TransferTon";
 import styled from "styled-components";
 
 const StyledAppTab = styled.div`
-  background-color: #ffffff;
+  background-color: #0000ff;
   color: ${"var(--black-color)"};
 
   min-height: 100vh;

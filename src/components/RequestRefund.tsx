@@ -6,7 +6,7 @@ import { Card, FlexBoxCol, FlexBoxRow, Button, Input } from "./styled/styled";
 import { CHAIN } from "@tonconnect/protocol";
 import { time } from "console";
 
-export function TransferTon() {
+export function RequestRefund() {
   const { sender, connected, network } = useTonConnect();
   const [tonAmount, setTonAmount] = useState("5");
   const [tonRecipient, setTonRecipient] = useState("EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c");
@@ -15,25 +15,9 @@ export function TransferTon() {
   return (
     <Card>
       <FlexBoxCol>
-        <h3>Fill Contract Form</h3>
-        <FlexBoxRow>
-          <label style={{ width: '100px', display: 'inline-block' }}>Contract</label>
-          <Input
-            style={{ marginRight: 8, fontSize: '14px' }}
-            value= {network ? network === CHAIN.TESTNET ? "!mainnet" : "retention.ton" : "N/A" }
-            disabled
-          ></Input>
-        </FlexBoxRow>
-        <FlexBoxRow>
-        <label style={{ width: '100px', display: 'inline-block' }}>Amount</label>
-          <Input
-            style={{ marginRight: 8 }}
-            type="number"
-            value={tonAmount}
-            onChange={(e) => setTonAmount(e.target.value)}
-            min={5}
-          ></Input>
-        </FlexBoxRow>
+        <h3>Fill Refund Form</h3>
+        
+        
         <FlexBoxRow>
           <label style={{ width: '100px', display: 'inline-block' }}>Secret</label>
           <Input
@@ -71,7 +55,7 @@ export function TransferTon() {
                 value: toNano(tonAmount),
               });
             }}>
-              Create
+              Request
           </Button>
         </div>
       </FlexBoxCol>

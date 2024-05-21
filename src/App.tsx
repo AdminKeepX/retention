@@ -21,6 +21,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Tab1Content from "./Tab1Content";
 import Tab2Content from "./Tab2Content";
 import Tab3Content from "./Tab3Content";
+import Tab4Content from "./Tab4Content";
 
 
 const StyledApp = styled.div`
@@ -92,6 +93,9 @@ function App() {
       content = <Tab2Content />;
       break;
     case 2:
+      content = <Tab4Content />;
+      break;
+    case 3:
       content = <Tab3Content />;
       break;
     default:
@@ -99,8 +103,10 @@ function App() {
   }
 
   return (
+    
     <Box sx={{ width: '100%', height: '100vh', display: 'flex', flexDirection: 'column' }}>
     <Box sx={{ flexGrow: 1, padding: 2 }}>
+    <TonConnectButton />
       {content}
     </Box>
     <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
@@ -112,8 +118,9 @@ function App() {
         }}
       >
         <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Favorites" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Nearby" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="Create" icon={<FavoriteIcon />} />
+        <BottomNavigationAction label="Request" icon={<LocationOnIcon />} />
+        <BottomNavigationAction label="About" icon={<LocationOnIcon />} />
       </BottomNavigation>
     </Paper>
   </Box>

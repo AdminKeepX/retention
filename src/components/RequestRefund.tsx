@@ -10,7 +10,18 @@ export function RequestRefund() {
   const { sender, connected, network } = useTonConnect();
   const [tonAmount, setTonAmount] = useState("5");
   const [tonRecipient, setTonRecipient] = useState("EQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAM9c");
-  const [expirationDate, setExpirationDate] = useState(Date.now());
+  
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
+
+  const handleDateChange = (value: string) => {
+    const timestamp = Number(value);
+    if (!isNaN(timestamp)) {
+      const date = new Date(timestamp);
+      setSelectedDate(date);
+    } else {
+      console.error('Invalid timestamp');
+    }
+  };
 
   return (
     <Card>
@@ -30,9 +41,9 @@ export function RequestRefund() {
           <label style={{ width: '100px', display: 'inline-block' }}>Expiration</label>
           <Input
             style={{ marginRight: 8 }}
-            type="number"
-            value={expirationDate}
-            onChange={(e) => setExpirationDate(e.target.value)}
+            type="text"
+            value={selectedDate || Date.now()}
+            onChange={(e) => handleDateChange( e.target.value) }
           ></Input>
         </FlexBoxRow>
         <div style={{ 

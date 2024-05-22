@@ -48,7 +48,7 @@ export function TransferTon() {
             style={{ marginRight: 8 }}
             type="number"
             value={expirationDate}
-            onChange={(e) => setExpirationDate(e.target.value)}
+            // onChange={(e) => setExpirationDate(e.target.value)}
           ></Input>
         </FlexBoxRow>
         <div style={{ 

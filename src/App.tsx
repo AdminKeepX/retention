@@ -1,10 +1,6 @@
 import "./App.css";
 import { TonConnectButton } from "@tonconnect/ui-react";
-import { Counter } from "./components/Counter";
-import { Jetton } from "./components/Jetton";
-import { TransferTon } from "./components/TransferTon";
 import styled from "styled-components";
-import { Button, FlexBoxCol, FlexBoxRow } from "./components/styled/styled";
 import { useTonConnect } from "./hooks/useTonConnect";
 import { CHAIN } from "@tonconnect/protocol";
 import "@twa-dev/sdk";
@@ -22,6 +18,23 @@ import Tab1Content from "./Tab1Content";
 import Tab2Content from "./Tab2Content";
 import Tab3Content from "./Tab3Content";
 import Tab4Content from "./Tab4Content";
+import { AppBar, Toolbar, Typography, Container, createMuiTheme } from "@mui/material";
+import AppAppBar from "./components/AppAppBar";
+
+
+
+// function App() {
+//   const classes = useStyles(); // ❌ If you have this, consider moving it
+//   // inside of a component wrapped with <ThemeProvider />
+//   return <ThemeProvider theme={theme}>{children}</ThemeProvider>;
+// }
+
+
+
+// const useStyles = makeStyles( (theme)  => ({
+//   root: { flexGrow: 1},
+//   menuButton: { marginRight: theme.spacing(1) }
+// }))
 
 
 const StyledApp = styled.div`
@@ -103,27 +116,29 @@ function App() {
   }
 
   return (
+    <>
+      <AppAppBar/>
     
-    <Box sx={{ width: '100%', height: '100vh', display: 'flex', flexDirection: 'column' }}>
-    <Box sx={{ flexGrow: 1, padding: 2 }}>
-    <TonConnectButton />
-      {content}
-    </Box>
-    <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
-      <BottomNavigation
-        showLabels
-        value={value}
-        onChange={(event, newValue) => {
-          setValue(newValue);
-        }}
-      >
-        <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
-        <BottomNavigationAction label="Create" icon={<FavoriteIcon />} />
-        <BottomNavigationAction label="Request" icon={<LocationOnIcon />} />
-        <BottomNavigationAction label="About" icon={<LocationOnIcon />} />
-      </BottomNavigation>
-    </Paper>
-  </Box>
+      <Box sx={{ width: '100%', height: '100vh', display: 'flex', flexDirection: 'column', mt: 8 }}>
+        <Container sx={{ flexGrow: 1, padding: 3 }}>
+          {content}
+        </Container>
+        <Paper sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} elevation={3}>
+          <BottomNavigation
+            showLabels
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue);
+            }}
+          >
+            <BottomNavigationAction label="Recents" icon={<RestoreIcon />} />
+            <BottomNavigationAction label="Create" icon={<FavoriteIcon />} />
+            <BottomNavigationAction label="Request" icon={<LocationOnIcon />} />
+            <BottomNavigationAction label="About" icon={<LocationOnIcon />} />
+          </BottomNavigation>
+        </Paper>
+      </Box>
+    </>
   );
 }
 
